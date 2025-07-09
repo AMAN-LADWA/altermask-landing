@@ -16,29 +16,38 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       padding: 2rem;
       text-align: center;
-      background-image: radial-gradient(circle at top center, rgba(255, 0, 51, 0.1), transparent 70%);
     }
 
     h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 4rem;
-      letter-spacing: 2px;
-      margin-bottom: 0.2em;
       color: #ff0033;
+      letter-spacing: 2px;
+      text-shadow: 0 0 5px #ff0033;
+      animation: glitch 1.2s infinite;
+      margin-top: 0;
     }
 
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: #bbb;
-      margin-bottom: 2rem;
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ff0033, -2px -2px #00ffff; }
+      50% { text-shadow: -2px 2px #ff0033, 2px -2px #00ffff; }
+      100% { text-shadow: 2px 2px #ff0033, -2px -2px #00ffff; }
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
     }
 
     form {
+      margin-top: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -47,8 +56,7 @@
 
     input[type="email"] {
       padding: 0.8rem 1rem;
-      width: 280px;
-      max-width: 100%;
+      width: 300px;
       font-size: 1rem;
       border: none;
       border-radius: 4px;
@@ -62,49 +70,44 @@
       font-size: 1rem;
       color: white;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
 
     button:hover {
       background-color: #cc002a;
     }
 
-    .social {
-      margin-top: 2rem;
-      font-size: 1.1rem;
-      color: #999;
-    }
-
-    .social a {
-      color: #ff0033;
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
-
     .tagline {
+      margin-top: 1.2rem;
       font-style: italic;
+      color: #888;
       font-size: 0.95rem;
-      color: #666;
-      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
+
   <h1>ALTERMASK</h1>
-  <h2>Change your face. Own your identity.</h2>
-  <p>Limited drop launching Fall 2025.</p>
+  <p class="tagline">Change your face. Own your identity.</p>
+
+  <!-- 🔁 Swap out the video filename based on what format you want -->
+  <!-- For 16:9 teaser -->
+  <!-- <video autoplay muted loop playsinline>
+    <source src="teaser-16x9.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>-->
+
+  <!-- For 9:16 teaser, use this instead -->
+  
+  <video autoplay muted loop playsinline style="max-height: 600px;">
+    <source src="teaser-9x16.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
 
   <form action="https://formspree.io/f/xwpbdwvw" method="POST">
-    <input type="email" name="email" placeholder="Enter email for launch access" required />
+    <input type="email" name="email" placeholder="Enter email for drop alert" required />
     <button type="submit">Notify Me</button>
   </form>
 
-  <div class="tagline">Precision-built modular facewear for creators, cosplayers, and altered identities.</div>
-
-  <div class="social">
-    <a href="https://github.com/AMAN-LADWA/altermask-landing" target="_blank">GitHub</a>|
-    <a href="https://www.youtube.com/@AlterMaskOfficial" target="_blank">YouTube</a>|
-    <a href="https://instagram.com/alter.mask" target="_blank">Instagram</a>
-  </div>
 </body>
 </html>

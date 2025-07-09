@@ -83,6 +83,15 @@
       font-size: 0.95rem;
     }
   </style>
+  <script>
+  const video = document.getElementById('maskTeaser');
+  const image = document.getElementById('maskImage');
+
+  video.onended = () => {
+    video.style.display = "none";
+    image.style.display = "block";
+  };
+</script>
 </head>
 <body>
 
@@ -98,10 +107,13 @@
 
   <!-- For 9:16 teaser, use this instead -->
   
-  <video autoplay muted playsinline style="max-height: 600px;">
+  <video id="maskTeaser" autoplay muted playsinline style="max-height: 600px;">
     <source src="Purple Modern Coming Soon Mobile Video.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <!-- IMAGE TO SHOW AFTER VIDEO ENDS -->
+  <img id="maskImage" src="static.jpg" alt="AlterMask Preview" style="max-height: 600px;" />
+
   
 
   <form action="https://formspree.io/f/xwpbdwvw" method="POST">
